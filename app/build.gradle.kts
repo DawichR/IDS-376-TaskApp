@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.jetbrainsKotlinAndroid)
     id ("kotlin-kapt")
     id ("kotlin-parcelize")
-    id("com.google.devtools.ksp")
+    id ("com.google.devtools.ksp")
     id ("androidx.navigation.safeargs")
 }
 
@@ -54,12 +54,13 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     // ROOM
-    implementation("androidx.room:room-runtime:2.6.1")
-    ksp("androidx.room:room-compiler:2.6.1")
+    val roomVersion = "2.6.1"
+    implementation ("androidx.room:room-runtime:$roomVersion")
+    ksp("androidx.room:room-compiler:$roomVersion")
 
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
-    implementation ("androidx.room:room-ktx:2.6.1")
+    implementation ("androidx.room:room-ktx:$roomVersion")
 
     // Navigation
     val navVersion = "2.7.5"
