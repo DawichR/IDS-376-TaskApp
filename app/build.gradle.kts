@@ -63,12 +63,12 @@ dependencies {
     implementation ("androidx.room:room-ktx:$roomVersion")
 
     // Navigation
-    val navVersion = "2.7.5"
+    val navVersion = "2.7.7"
     implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
     implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
 
     // Life Cycle Arch
-    val lifecycleVersion = "2.6.2"
+    val lifecycleVersion = "2.7.0"
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion")
     ksp("androidx.lifecycle:lifecycle-compiler:$lifecycleVersion")

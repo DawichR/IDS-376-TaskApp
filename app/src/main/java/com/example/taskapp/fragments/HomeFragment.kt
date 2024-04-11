@@ -25,8 +25,7 @@ import com.example.taskapp.viewmodel.TaskViewModel
 class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextListener, MenuProvider {
 
     private var homeBinding: FragmentHomeBinding? = null
-    private val binding get() = homeBinding ?:
-    throw IllegalStateException("Homebinding No esta disponible.")
+    private val binding get() = homeBinding!!
 
 
     private lateinit var taskViewModel: TaskViewModel
