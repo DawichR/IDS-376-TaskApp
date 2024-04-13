@@ -54,9 +54,11 @@ class EditTaskFragment :Fragment(R.layout.fragment_edit_task), MenuProvider {
         binding.editTaskFab.setOnClickListener{
             val taskTitle = binding.editTaskTitle.text.toString().trim()
             val taskDesc = binding.editTaskDesc.text.toString().trim()
+            val dueDate = binding.editTaskDueDate.text.toString();
+            val isCompleted = false;
 
             if(taskTitle.isNotEmpty()){
-                val task = Task(currentTask.Id, taskTitle, taskDesc)
+                val task = Task(currentTask.Id, taskTitle, taskDesc, isCompleted, dueDate)
                 taskViewModel.updateTask(task)
                 view.findNavController().popBackStack(R.id.homeFragment, false)
             }else{

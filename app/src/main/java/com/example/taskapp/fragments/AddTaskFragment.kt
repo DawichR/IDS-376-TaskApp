@@ -52,9 +52,11 @@ class AddTaskFragment : Fragment(R.layout.fragment_add_task), MenuProvider {
     private fun saveNote(view: View){
         val taskTitle = binding.addTaskTitle.text.toString().trim()
         val taskDescription = binding.addTaskDesc.text.toString().trim()
+        val dueDate = binding.addTaskDueDate.text.toString();
+        val isCompleted = false;
 
         if(taskTitle.isNotEmpty()){
-            val task = Task(0, taskTitle, taskDescription)
+            val task = Task(0, taskTitle, taskDescription, isCompleted, dueDate)
             taskViewModel.addTask(task)
 
             Toast.makeText(addTaskView.context, "Has agregado una tarea!", Toast.LENGTH_LONG).show()
