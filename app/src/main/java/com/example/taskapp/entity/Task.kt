@@ -13,7 +13,7 @@ import java.util.Date
 @Parcelize
 data class Task(
     @PrimaryKey(autoGenerate = true)
-    val Id: Int,
+    val Id: Int = 0,
     val Title: String,
     val Description: String,
     val IsCompleted: Boolean,
