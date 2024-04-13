@@ -3,16 +3,21 @@ package com.example.taskapp.entity
 import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.TypeConverter
+import androidx.room.TypeConverters
 import kotlinx.parcelize.Parcelize
+import java.util.Date
 
 // Definir estructura como entidad y a que tabla se referencia
 @Entity(tableName = "Task")
 @Parcelize
 data class Task(
     @PrimaryKey(autoGenerate = true)
-    val Id: Int,
+    val Id: Int = 0,
     val Title: String,
-    val Description: String
+    val Description: String,
+    val IsCompleted: Boolean,
+    val DueDate: String
 ): Parcelable
 
 /*
