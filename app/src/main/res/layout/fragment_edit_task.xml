@@ -24,9 +24,10 @@
 
         <EditText
             android:id="@+id/editTaskTitle"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="60dp"
             android:hint="Enter the title"
+            android:imeOptions="actionDone"
             android:padding="12dp"
             android:textSize="20sp"
             android:background="@drawable/red_border"
@@ -39,10 +40,8 @@
         <EditText
             android:id="@+id/editTaskDueDate"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_height="56dp"
             android:layout_marginTop="40dp"
-            android:layout_marginEnd="16dp"
             android:background="@drawable/red_border"
             android:hint="Enter the due date"
             android:inputType="date"
@@ -50,30 +49,32 @@
             android:padding="12dp"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/editTaskDesc"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/editTaskTitle"
             app:layout_constraintVertical_bias="0.0" />
 
+        <CheckBox
+            android:id="@+id/isCompleted"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="32dp"
+            android:text="Is Completed?"
+            app:layout_constraintTop_toBottomOf="@id/editTaskDueDate"
+            tools:layout_editor_absoluteX="16dp" />
+
         <EditText
             android:id="@+id/editTaskDesc"
-            android:layout_width="366dp"
-            android:layout_height="234dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:hint="Enter the description"
+            android:layout_width="match_parent"
+            android:layout_height="214dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/red_border"
             android:gravity="top"
+            android:hint="Enter the description"
             android:padding="12dp"
             android:textSize="18sp"
-            android:background="@drawable/red_border"
+            app:layout_constraintHorizontal_bias="0.761"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/editTaskDueDate"
-            app:layout_constraintBottom_toTopOf="@id/editTaskFab"
-            android:layout_marginTop="12dp" />
-
-
+            app:layout_constraintTop_toBottomOf="@id/isCompleted"
+            app:layout_constraintVertical_bias="0.238" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/editTaskFab"
