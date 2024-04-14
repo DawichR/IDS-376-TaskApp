@@ -24,11 +24,9 @@
 
         <EditText
             android:id="@+id/addTaskTitle"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
             android:background="@drawable/red_border"
             android:hint="Enter the title"
             android:maxLines="1"
@@ -40,11 +38,9 @@
 
         <EditText
             android:id="@+id/addTaskDueDate"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="40dp"
-            android:layout_marginEnd="16dp"
             android:background="@drawable/red_border"
             android:hint="Enter the due date"
             android:inputType="date"
@@ -60,11 +56,9 @@
 
         <EditText
             android:id="@+id/addTaskDesc"
-            android:layout_width="366dp"
+            android:layout_width="match_parent"
             android:layout_height="234dp"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="12dp"
-            android:layout_marginEnd="16dp"
             android:background="@drawable/red_border"
             android:gravity="top"
             android:hint="Enter the description"
@@ -87,8 +81,7 @@
             android:backgroundTint="@android:color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"/>
+/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

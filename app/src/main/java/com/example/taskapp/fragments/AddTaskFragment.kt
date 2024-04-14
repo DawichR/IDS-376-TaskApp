@@ -1,5 +1,6 @@
 package com.example.taskapp.fragments
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -18,6 +19,9 @@ import com.example.taskapp.R
 import com.example.taskapp.databinding.FragmentAddTaskBinding
 import com.example.taskapp.entity.Task
 import com.example.taskapp.viewmodel.TaskViewModel
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
 
 
 class AddTaskFragment : Fragment(R.layout.fragment_add_task), MenuProvider {
@@ -28,6 +32,8 @@ class AddTaskFragment : Fragment(R.layout.fragment_add_task), MenuProvider {
     private lateinit var taskViewModel: TaskViewModel
 
     private lateinit var addTaskView: View
+    private val calendar = Calendar.getInstance()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -47,6 +53,7 @@ class AddTaskFragment : Fragment(R.layout.fragment_add_task), MenuProvider {
         binding.saveButton.setOnClickListener{
             saveNote(addTaskView)
         }
+        binding.addTaskDueDate.setOnClickListener{showDatePickerDialog()}
     }
 
     private fun saveNote(view: View){
@@ -85,5 +92,27 @@ class AddTaskFragment : Fragment(R.layout.fragment_add_task), MenuProvider {
     override fun onDestroy() {
         super.onDestroy()
         addTaskBinding = null
+    }
+
+
+    private fun showDatePickerDialog(){
+            // Create a DatePickerDialog
+            val datePickerDialog = DatePickerDialog(addTaskView.context, {DatePicker, year: Int, monthOfYear: Int, dayOfMonth: Int ->
+                    // Create a new Calendar instance to hold the selected date
+                    val selectedDate = Calendar.getInstance()
+                    // Set the selected date using the values received from the DatePicker dialog
+                    selectedDate.set(year, monthOfYear, dayOfMonth)
+                    // Create a SimpleDateFormat to format the date as "dd/MM/yyyy"
+                    val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+                    // Format the selected date into a string
+                    val formattedDate = dateFormat.format(selectedDate.time)
+                    binding.addTaskDueDate.setText(formattedDate.toString());
+                },
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH)
+            )
+            // Show the DatePicker dialog
+            datePickerDialog.show()
     }
 }
