@@ -25,9 +25,9 @@ interface TaskDao {
     @Delete
     suspend fun deleteTask(task: Task)
 
-    @Query("SELECT * FROM TASK WHERE IsCompleted = FALSE ORDER BY Id DESC")
+    @Query("SELECT * FROM TASK WHERE IsCompleted = 0 ORDER BY Id DESC")
     fun  getAllTask(): LiveData<List<Task>>
 
-    @Query("SELECT * FROM TASK WHERE Title LIKE :query OR Description ")
+    @Query("SELECT * FROM TASK WHERE (IsCompleted = 0 OR IsCompleted IS NULL) AND (Title LIKE :query OR Description like :query)")
     fun searchTask(query: String?): LiveData<List<Task>>
 }
