@@ -22,6 +22,7 @@ import com.example.taskapp.entity.Task
 import com.example.taskapp.viewmodel.TaskViewModel
 
 
+
 class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextListener, MenuProvider {
 
     private var homeBinding: FragmentHomeBinding? = null
@@ -80,8 +81,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextLis
     }
 
     private fun searchTask(query: String?){
-        val searchQuery = "%$query"
-
+        val searchQuery = "%$query%"
         taskViewModel.searcNotes(searchQuery).observe(this){
             list ->
             taskAdapter.differ.submitList(list)
