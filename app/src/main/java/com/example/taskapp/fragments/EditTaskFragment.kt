@@ -25,6 +25,7 @@ import com.example.taskapp.R
 import com.example.taskapp.databinding.FragmentEditTaskBinding
 import com.example.taskapp.entity.Task
 import com.example.taskapp.viewmodel.TaskViewModel
+import com.google.firebase.auth.FirebaseAuth
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -33,6 +34,7 @@ import java.util.Locale
 class EditTaskFragment :Fragment(R.layout.fragment_edit_task), MenuProvider {
 
     private var editTaskBinding: FragmentEditTaskBinding? = null
+    private  lateinit var firebaseAuth: FirebaseAuth
     private val binding get() = editTaskBinding!!
 
     private lateinit var taskViewModel: TaskViewModel
@@ -47,6 +49,7 @@ class EditTaskFragment :Fragment(R.layout.fragment_edit_task), MenuProvider {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        firebaseAuth = FirebaseAuth.getInstance()
         editTaskBinding = FragmentEditTaskBinding.inflate(inflater,container,false)
         return binding.root
     }
@@ -71,9 +74,10 @@ class EditTaskFragment :Fragment(R.layout.fragment_edit_task), MenuProvider {
             val taskDesc = binding.editTaskDesc.text.toString().trim()
             val dueDate = binding.editTaskDueDate.text.toString();
             val isCompleted = binding.isCompleted.isChecked;
+            val userId = firebaseAuth.currentUser!!.uid
 
             if(taskTitle.isNotEmpty()){
-                val task = Task(currentTask.Id, taskTitle, taskDesc, isCompleted, dueDate)
+                val task = Task(currentTask.Id, taskTitle, taskDesc, isCompleted, dueDate, userId)
                 taskViewModel.updateTask(task)
                 view.findNavController().popBackStack(R.id.homeFragment, false)
             }else{

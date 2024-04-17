@@ -23,8 +23,10 @@ class TaskViewModel(app: Application, private val taskRepository: TaskRepository
             taskRepository.deleteTask(task)
         }
 
-    fun getAllTask() = taskRepository.getAllTask()
+    fun getAllTask(userId: String?) = taskRepository.getAllTask(userId)
 
-    fun searcNotes(query: String?) = taskRepository.searchTask(query)
+    fun getAllCompletedTasks(userId: String?) = taskRepository.getAllCompletedTasks(userId)
+
+    fun searcNotes(query: String?, userId: String?) = taskRepository.searchTask(query, userId)
 
 }

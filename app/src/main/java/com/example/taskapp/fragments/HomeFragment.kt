@@ -20,7 +20,7 @@ import com.example.taskapp.adapter.TaskAdapter
 import com.example.taskapp.databinding.FragmentHomeBinding
 import com.example.taskapp.entity.Task
 import com.example.taskapp.viewmodel.TaskViewModel
-
+import com.google.firebase.auth.FirebaseAuth
 
 
 class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextListener, MenuProvider {
@@ -31,13 +31,18 @@ class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextLis
 
     private lateinit var taskViewModel: TaskViewModel
     private lateinit var taskAdapter: TaskAdapter
+    private lateinit var firebaseAuth: FirebaseAuth
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
         homeBinding = FragmentHomeBinding.inflate(inflater, container, false)
+        firebaseAuth = FirebaseAuth.getInstance()
+
         return binding.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -73,7 +78,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextLis
         }
 
         activity?.let {
-            taskViewModel.getAllTask().observe(viewLifecycleOwner){ task ->
+            taskViewModel.getAllTask(userId = firebaseAuth.currentUser!!.uid).observe(viewLifecycleOwner){ task ->
                 taskAdapter.differ.submitList(task)
                 updateUI(task)
             }
@@ -82,7 +87,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextLis
 
     private fun searchTask(query: String?){
         val searchQuery = "%$query%"
-        taskViewModel.searcNotes(searchQuery).observe(this){
+        taskViewModel.searcNotes(searchQuery, firebaseAuth.currentUser!!.uid).observe(this){
             list ->
             taskAdapter.differ.submitList(list)
         }

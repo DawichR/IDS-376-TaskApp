@@ -19,6 +19,7 @@ import com.example.taskapp.R
 import com.example.taskapp.databinding.FragmentAddTaskBinding
 import com.example.taskapp.entity.Task
 import com.example.taskapp.viewmodel.TaskViewModel
+import com.google.firebase.auth.FirebaseAuth
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -26,6 +27,7 @@ import java.util.Locale
 
 class AddTaskFragment : Fragment(R.layout.fragment_add_task), MenuProvider {
 
+    private  lateinit var firebaseAuth: FirebaseAuth
     private var addTaskBinding: FragmentAddTaskBinding? = null
     private val binding get() = addTaskBinding!!
 
@@ -38,7 +40,7 @@ class AddTaskFragment : Fragment(R.layout.fragment_add_task), MenuProvider {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
         ): View? {
-
+        firebaseAuth = FirebaseAuth.getInstance()
         addTaskBinding = FragmentAddTaskBinding.inflate(inflater,container,false)
         return binding.root
     }
@@ -61,9 +63,10 @@ class AddTaskFragment : Fragment(R.layout.fragment_add_task), MenuProvider {
         val taskDescription = binding.addTaskDesc.text.toString().trim()
         val dueDate = binding.addTaskDueDate.text.toString();
         val isCompleted = false;
+        val userId = firebaseAuth.currentUser!!.uid
 
         if(taskTitle.isNotEmpty()){
-            val task = Task(0, taskTitle, taskDescription, isCompleted, dueDate)
+            val task = Task(0, taskTitle, taskDescription, isCompleted, dueDate, userId)
             taskViewModel.addTask(task)
 
             Toast.makeText(addTaskView.context, "Has agregado una tarea!", Toast.LENGTH_LONG).show()

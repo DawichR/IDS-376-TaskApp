@@ -17,7 +17,8 @@ data class Task(
     val Title: String,
     val Description: String,
     val IsCompleted: Boolean,
-    val DueDate: String
+    val DueDate: String,
+    val UserId: String
 ): Parcelable
 
 /*

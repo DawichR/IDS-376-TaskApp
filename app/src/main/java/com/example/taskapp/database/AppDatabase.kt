@@ -8,7 +8,7 @@ import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.taskapp.entity.Task
 
-@Database(entities = [Task::class], version = 2, exportSchema = false)
+@Database(entities = [Task::class], version = 3, exportSchema = false)
 abstract class AppDatabase: RoomDatabase() {
 
     abstract fun getTaskDao(): TaskDao
@@ -28,11 +28,13 @@ abstract class AppDatabase: RoomDatabase() {
                             `Title` TEXT NOT NULL,
                             `Description` TEXT NOT NULL,
                             `IsCompleted` INTEGER NOT NULL DEFAULT 0,
-                            `DueDate` TEXT NOT NULL
+                            `DueDate` TEXT NOT NULL,
+                            `UserId` TEXT
                         );"""
                         )
             }
         }
+
         operator fun invoke(context: Context) = instance ?:
         synchronized(LOCK){
             instance ?:
@@ -47,7 +49,8 @@ abstract class AppDatabase: RoomDatabase() {
                 context.applicationContext,
                 AppDatabase::class.java,
                 "task_db"
-            ).addMigrations(MIGRATION_1_2)
+            ).fallbackToDestructiveMigration()
+                .addMigrations(MIGRATION_1_2)
                 .build()
     }
 }
