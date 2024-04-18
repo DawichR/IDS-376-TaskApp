@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.taskapp.database.AppDatabase
 import com.example.taskapp.databinding.ActivityMainBinding
-import com.example.taskapp.fragments.CompletedTasksFragment
+import com.example.taskapp.fragments.CompletedTaskFragment
 import com.example.taskapp.fragments.HomeFragment
 import com.example.taskapp.repository.TaskRepository
 import com.example.taskapp.viewmodel.TaskViewModel
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.done ->{
-                    loadFragment(CompletedTasksFragment())
+                    loadFragment(CompletedTaskFragment())
                     true
 
                 }
