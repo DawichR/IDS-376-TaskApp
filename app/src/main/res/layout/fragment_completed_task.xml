@@ -12,9 +12,9 @@
         android:visibility="gone" />
 
     <ImageView
-        android:id="@+id/emptyNotesImage"
+        android:id="@+id/taskcompleted"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        android:src="@drawable/emptybkg"/>
+        android:src="@drawable/taskcompleted"/>
 </FrameLayout>

@@ -43,10 +43,10 @@ class CompletedTaskFragment : Fragment(R.layout.fragment_completed_task) {
     private fun updateUI(task: List<Task>?){
         if(task != null){
             if(task.isNotEmpty()){
-                binding.emptyNotesImage.visibility = View.GONE
+                binding.taskcompleted.visibility = View.GONE
                 binding.completedRecyclerView.visibility = View.VISIBLE
             }else{
-                binding.emptyNotesImage.visibility = View.VISIBLE
+                binding.taskcompleted.visibility = View.VISIBLE
                 binding.completedRecyclerView.visibility = View.GONE
             }
         }

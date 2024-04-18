@@ -52,9 +52,7 @@ class AddTaskFragment : Fragment(R.layout.fragment_add_task), MenuProvider {
 
         taskViewModel = (activity as MainActivity).taskViewModel
         addTaskView = view
-        binding.saveButton.setOnClickListener{
-            saveNote(addTaskView)
-        }
+
         binding.addTaskDueDate.setOnClickListener{showDatePickerDialog()}
     }
 
