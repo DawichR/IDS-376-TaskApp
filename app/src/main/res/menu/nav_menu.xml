@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item
+    android:id="@+id/home"
+    android:icon="@drawable/baseline_home_24"
+    android:title="Principal"
+    />
+
+    <item
+        android:id="@+id/done"
+        android:icon="@drawable/done_fill0_wght400_grad0_opsz24"
+        android:title="Completadas"
+        />
+    <item
+        android:id="@+id/logout"
+        android:icon="@drawable/logout_fill0_wght400_grad0_opsz24"
+        android:title="Cerrar Sesion"
+        />
+</menu>

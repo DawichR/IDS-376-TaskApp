@@ -5,6 +5,7 @@ plugins {
     id ("kotlin-parcelize")
     id ("com.google.devtools.ksp")
     id ("androidx.navigation.safeargs")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -39,6 +40,7 @@ android {
     }
     buildFeatures{
         dataBinding = true
+        viewBinding = true
     }
 }
 
@@ -49,6 +51,8 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.firebase.auth)
+    implementation(libs.firebase.config)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
