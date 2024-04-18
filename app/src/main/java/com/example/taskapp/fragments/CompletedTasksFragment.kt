@@ -10,8 +10,6 @@ import com.example.taskapp.MainActivity
 import com.example.taskapp.R
 import com.example.taskapp.adapter.TaskAdapter
 import com.example.taskapp.databinding.FragmentCompletedTaskBinding
-import com.example.taskapp.databinding.FragmentHomeBinding
-import com.example.taskapp.entity.Task
 import com.example.taskapp.viewmodel.TaskViewModel
 import com.google.firebase.auth.FirebaseAuth
 

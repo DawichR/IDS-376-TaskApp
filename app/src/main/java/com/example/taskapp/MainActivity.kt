@@ -38,7 +38,6 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.done ->{
-                    // Todo: Add the Completed view.
                     loadFragment(CompletedTasksFragment())
                     true
 

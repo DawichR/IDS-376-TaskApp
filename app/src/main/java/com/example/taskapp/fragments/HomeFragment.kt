@@ -28,7 +28,6 @@ class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextLis
     private var homeBinding: FragmentHomeBinding? = null
     private val binding get() = homeBinding!!
 
-
     private lateinit var taskViewModel: TaskViewModel
     private lateinit var taskAdapter: TaskAdapter
     private lateinit var firebaseAuth: FirebaseAuth
@@ -42,7 +41,6 @@ class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextLis
         firebaseAuth = FirebaseAuth.getInstance()
 
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
