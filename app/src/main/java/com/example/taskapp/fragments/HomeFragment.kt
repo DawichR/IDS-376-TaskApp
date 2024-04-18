@@ -13,6 +13,7 @@ import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.taskapp.MainActivity
 import com.example.taskapp.R
@@ -52,7 +53,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextLis
         taskViewModel = (activity as MainActivity).taskViewModel
         setupHomeRecyclerView()
         binding.addTaskFab.setOnClickListener{
-            it.findNavController().navigate(R.id.action_homeFragment_to_addTaskFragment)
+            this.findNavController().navigate(R.id.action_homeFragment_to_addTaskFragment)
         }
     }
     private fun updateUI(task: List<Task>?){

@@ -29,13 +29,13 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="completedTasksFragment">
+                  <entry key="completedTaskFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-190" />
-                            <option name="y" value="251" />
+                            <option name="x" value="-274" />
+                            <option name="y" value="13" />
                           </Point>
                         </option>
                       </LayoutPositions>

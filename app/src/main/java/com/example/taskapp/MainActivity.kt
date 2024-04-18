@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import com.example.taskapp.database.AppDatabase
 import com.example.taskapp.databinding.ActivityMainBinding
 import com.example.taskapp.fragments.CompletedTaskFragment
@@ -34,13 +35,13 @@ class MainActivity : AppCompatActivity() {
         bottomNav.setOnItemSelectedListener {
             when (it.itemId){
                 R.id.home -> {
-                    loadFragment(HomeFragment())
+                    this.findNavController(R.id.fragmentContainerView).navigate(R.id.action_global_to_home)
+
                     true
                 }
                 R.id.done ->{
-                    loadFragment(CompletedTaskFragment())
+                    this.findNavController(R.id.fragmentContainerView).navigate(R.id.action_global_to_completed_task)
                     true
-
                 }
                 R.id.logout -> {
                     firebaseAuth.signOut()
