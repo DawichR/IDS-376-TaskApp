@@ -3,17 +3,17 @@
 <item
     android:id="@+id/home"
     android:icon="@drawable/baseline_home_24"
-    android:title="Principal"
+    android:title="Home"
     />
 
     <item
         android:id="@+id/done"
         android:icon="@drawable/done_fill0_wght400_grad0_opsz24"
-        android:title="Completadas"
+        android:title="Completed"
         />
     <item
         android:id="@+id/logout"
         android:icon="@drawable/logout_fill0_wght400_grad0_opsz24"
-        android:title="Cerrar Sesion"
+        android:title="Logout"
         />
 </menu>

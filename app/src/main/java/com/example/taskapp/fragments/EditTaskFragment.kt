@@ -130,15 +130,10 @@ class EditTaskFragment :Fragment(R.layout.fragment_edit_task), MenuProvider {
 
 
     private fun showDatePickerDialog(){
-        // Create a DatePickerDialog
         val datePickerDialog = DatePickerDialog(editTaskView.context, {DatePicker, year: Int, monthOfYear: Int, dayOfMonth: Int ->
-            // Create a new Calendar instance to hold the selected date
             val selectedDate = Calendar.getInstance()
-            // Set the selected date using the values received from the DatePicker dialog
             selectedDate.set(year, monthOfYear, dayOfMonth)
-            // Create a SimpleDateFormat to format the date as "dd/MM/yyyy"
             val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-            // Format the selected date into a string
             val formattedDate = dateFormat.format(selectedDate.time)
             binding.editTaskDesc.setText(formattedDate.toString());
         },
@@ -146,7 +141,6 @@ class EditTaskFragment :Fragment(R.layout.fragment_edit_task), MenuProvider {
             calendar.get(Calendar.MONTH),
             calendar.get(Calendar.DAY_OF_MONTH)
         )
-        // Show the DatePicker dialog
         datePickerDialog.show()
     }
 }
